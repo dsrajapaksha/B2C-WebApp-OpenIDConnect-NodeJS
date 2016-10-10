@@ -1,6 +1,7 @@
 
 exports.creds = {
-  // Required
+  // Required. It must be tenant-specific endpoint, common endpoint is not supported to use B2C
+  // feature.
   identityMetadata: 'https://login.microsoftonline.com/<tenant_name>.onmicrosoft.com/v2.0/.well-known/openid-configuration', 
   // or equivalently: 'https://login.microsoftonline.com/<tenant_guid>/v2.0/.well-known/openid-configuration'
 
@@ -35,13 +36,14 @@ exports.creds = {
   // Required to set to true if the `verify` function has 'req' as the first parameter
   passReqToCallback: false,
 
-  // Optional. The additional scope we want besides 'openid' and 'offline_access', for example: ['email', 'profile'].
+  // Optional. The additional scope you want besides 'openid', 'offline_access' and clientID.
+  // ('offline_access' is needed for refresh_token, and clientID is needed for access_token.)
   scope: null,
 
   // Optional, 'error', 'warn' or 'info'
   loggingLevel: 'info',
 
-  // optional. The lifetime of nonce in session. Default is 3600 seconds
+  // optional. The lifetime of nonce in session. Default is 3600 (seconds).
   nonceLifetime: null,
 };
 
