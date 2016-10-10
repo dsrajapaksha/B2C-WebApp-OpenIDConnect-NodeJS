@@ -9,7 +9,7 @@ exports.creds = {
   clientID: 'f0b6e4eb-2d8c-40b6-b9c6-e26d1074846d',
 
   // Required, must be 'code', 'code id_token', 'id_token code' or 'id_token' 
-  responseType: 'id_token', 
+  responseType: 'code', 
 
   // Required
   responseMode: 'form_post', 
@@ -31,7 +31,7 @@ exports.creds = {
   validateIssuer: true,
 
   // Required if you want to provide the issuer(s) you want to validate instead of using the issuer from metadata
-  issuer: null,
+  issuer: ['https://login.microsoftonline.com/22bf40c6-1186-4ea5-b49b-3dc4ec0f54eb/v2.0/'],
 
   // Required to set to true if the `verify` function has 'req' as the first parameter
   passReqToCallback: false,
